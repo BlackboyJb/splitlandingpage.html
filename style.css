@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --Right-bg-color: rgba(43, 43, 43, 0.8);
+    --left-btn-hover-color: rgba(87, 84, 236, 1);
+    --Right-btn-hover-color: rgba(43, 43, 43, 1);
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: " Lato, san-serif";
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+
+}
+
+h1 {
+    font-size: 4rem;
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: olive;
+}
+
+.btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: white;
+    border: white solid 0.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.split {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.split.left {
+    left: 0;
+    background: url('./images/ps5.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.split.left::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--left-bg-color);
+}
+
+.split.left .btn:hover {
+    background-color: var(--left-btn-hover-color);
+    border-color: var(--left-btn-hover-color)
+}
+
+
+.split.Right {
+    right: 0;
+    background: url('./images/xbox.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.split.Right::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Right-bg-color);
+}
+
+.split.Right .btn:hover {
+    background-color: var(--Right-btn-hover-color);
+    border-color: var(--Right-btn-hover-color);
+}
+
+.hover-left .left {
+    width: var(--hover-width);
+}
+
+.hover-left .Right {
+    width: var(--other-width);
+}
+
+.hover-Right .Right {
+    width: var(--hover-width);
+}
+
+.hover-Right .Left {
+    width: var(--other-width);
+}
+
+.split.left,
+.split.Right,
+.split.left:before,
+.split.Right:before {
+    transition: all var(--speed) ease-in-out;
+}
+
+@media(max-width:477px) {
+    .split.left h1 {
+        font-size: 30px;
+        margin-top: 100px;
+    }
+
+    .split.Right h1 {
+        font-size: 30px;
+        margin-top: 100px;
+    }
+
+    .btn {
+        width: 80%;
+    }
+
+    .btn:focus {
+        background-color: var(--left-btn-hover-color);
+        border-color: var(--left-btn-hover-color);
+    }
+}
